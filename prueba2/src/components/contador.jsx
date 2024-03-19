@@ -1,6 +1,6 @@
 import {userState} from "react"
 
-const Test2 = () => {
+const contador = () => {
     const [increment, setIncrement] = userState(0)
     return <>
         Hola {increment}
@@ -8,4 +8,4 @@ const Test2 = () => {
     </>
 }
 
-export default Test2
+export default contador
