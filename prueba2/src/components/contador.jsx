@@ -1,11 +1,16 @@
-import {userState} from "react"
+import React, {useEffect, useState} from "react"
 
-const contador = () => {
-    const [increment, setIncrement] = userState(0)
-    return <>
-        Hola {increment}
-        <button onClick={() => setIncrement(increment + 1)}>Increment</button>
-    </>
-}
+const Contador = () => {
+    const [increment, setIncrement] = useState(0)
+    useEffect(() => {
+        console.log('Hace hambre' + increment)
+    },[increment])
+    return (
+        <div>
+            <p>Hola {increment}</p>
+            <button onClick={() => setIncrement(increment + 1)}>Increment</button>
+        </div>
+    );
+};
 
-export default contador
+export default Contador
