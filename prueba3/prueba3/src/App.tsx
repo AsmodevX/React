@@ -1,10 +1,10 @@
 import './App.css';
-import Layout from './layout';
+import LayoutApp from './layout2';
 
 function App() {
   return (
     <div>
-     <Layout />
+     <LayoutApp />
     </div>
   );
 }
