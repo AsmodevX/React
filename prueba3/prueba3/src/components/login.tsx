@@ -52,6 +52,7 @@ export default function Login() {
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={() => window.location.href="/"}
                 >
                   Ingresar
                 </button>
@@ -60,7 +61,7 @@ export default function Login() {
 
             <p className="mt-10 text-center text-sm text-white-500">
               No tienes una cuenta?{' '}
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              <a href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 Creala ahora
               </a>
             </p>

@@ -12,6 +12,9 @@ import {
 } from '@heroicons/react/24/outline'
 import Buscar from './search';
 import Category from './categorias'
+import Sera from './icono'
+import Out from './signout'
+import React, { useState } from 'react'
 
 const solutions = [
   { name: 'Vehículos', href: '#', icon: TruckIcon },
@@ -25,6 +28,7 @@ const navigation = [
   
   { name: 'Ofertas', href: '#', current: false },
   { name: 'Vender', href: '#', current: false },
+  { name: 'Ayuda', href: '#', current: false }
 ]
 
 function classNames(...classes:any) {
@@ -32,7 +36,7 @@ function classNames(...classes:any) {
 }
 
 export default function Navegacion() {
-  
+  const [open, setOpen] = useState(false)
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -53,11 +57,13 @@ export default function Navegacion() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-12 w-auto"
-                    src="https://1000logos.net/wp-content/uploads/2022/06/Demon-Slayer-Emblem.png"
-                    alt="Your Company"
-                  />
+                  <a href='/'>
+                    <img
+                      className="h-12 w-auto"
+                      src="https://1000logos.net/wp-content/uploads/2022/06/Demon-Slayer-Emblem.png"
+                      alt="Inicio"
+                    />
+                  </a>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -135,20 +141,22 @@ export default function Navegacion() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            onClick={() => setOpen (true)}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
                           </a>
+                          
                         )}
                       </Menu.Item>
+                      {open && <Out />}
                     </Menu.Items>
                   </Transition>
                 </Menu>
               </div>
             </div>
           </div>
-
+          <div><Sera /></div>
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               <Popover className="relative">

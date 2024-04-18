@@ -6,12 +6,15 @@ import { AnySoaRecord } from 'dns'
 const products:any = []
 
 export default function Carrito(props:any) {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(props.state)
     console.log (props);
+    function Cerrar () {
+      props.onClose ()
+    }
   
     return (
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setOpen}>
+        <Dialog as="div" className="relative z-10" onClose={Cerrar}>
           <Transition.Child
             as={Fragment}
             enter="ease-in-out duration-500"
@@ -40,12 +43,12 @@ export default function Carrito(props:any) {
                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                       <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                         <div className="flex items-start justify-between">
-                          <Dialog.Title className="text-lg font-medium text-gray-900">Shopping cart</Dialog.Title>
+                          <Dialog.Title className="text-lg font-medium text-gray-900">Carro de Compras</Dialog.Title>
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
                               className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                              onClick={() => setOpen(false)}
+                              onClick={() => setOpen(Cerrar)}
                             >
                               <span className="absolute -inset-0.5" />
                               <span className="sr-only">Close panel</span>
@@ -85,7 +88,7 @@ export default function Carrito(props:any) {
                                           type="button"
                                           className="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
-                                          Remove
+                                          Quitar
                                         </button>
                                       </div>
                                     </div>
@@ -102,24 +105,24 @@ export default function Carrito(props:any) {
                           <p>Subtotal</p>
                           <p>$262.00</p>
                         </div>
-                        <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                        <p className="mt-0.5 text-sm text-gray-500">Los gastos de envío e impuestos seran calculados al finalizar la compra.</p>
                         <div className="mt-6">
                           <a
                             href="#"
                             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                           >
-                            Checkout
+                            Recibo de compra
                           </a>
                         </div>
                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                           <p>
-                            or{' '}
+                            o{' '}
                             <button
                               type="button"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
-                              onClick={() => setOpen(false)}
+                              onClick={() => setOpen(Cerrar)}
                             >
-                              Continue Shopping
+                              Seguir comprando
                               <span aria-hidden="true"> &rarr;</span>
                             </button>
                           </p>

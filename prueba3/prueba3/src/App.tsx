@@ -9,12 +9,15 @@ import Category from './components/categorias';
 import Example from './components/navbar';
 import Out from './components/signout';
 import Signup from './components/signup';
+import Sera from './components/icono';
+import LayoutApp from './layout2';
+import Layoutf from './layoutfinal';
 
 
 function App() {
   return (
     <div>
-      <Signup />
+      <Layoutf />
     </div>
   );
 }
